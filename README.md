@@ -1,6 +1,6 @@
 # gdq-stats
 
-> :space_invader: Stats webpage for [GamesDoneQuick](gamesdonequick.com). Hosted at [gdqstat.us](http://gdqstat.us)
+> :space_invader: Stats webpage for [GamesDoneQuick](gamesdonequick.com). Hosted at [gdqstats.com](https://gdqstats.com)
 
 ## Frontend
 
@@ -15,7 +15,7 @@ The actual visualization is done by Recharts. Other tools used include:
 
 ## Backend
 
-This page uses [gdq-collector](https://github.com/bcongdon/gdq-collector) to parse the GDQ donation tracker and to collect Twitch viewership information. This data is updated every minute.
+This page uses [gdq-collector](https://github.com/crunchtime-ali/gdq-collector) to parse the GDQ donation tracker and to collect Twitch viewership information. This data is updated every minute.
 
 Please visit that repo for more detailed information about the gdq-stats backend.
 
@@ -36,16 +36,21 @@ $ npm run snapshot --name=agdq-2021 # Replace w/ the current event name
 
 ## Previous Events
 
-- [SGDQ 2020](http://gdqstat.us/previous-events/sgdq-2020)
-- [AGDQ 2020](http://gdqstat.us/previous-events/agdq-2020)
-- [AGDQ 2019](http://gdqstat.us/previous-events/agdq-2019)
-- [SGDQ 2018](http://gdqstat.us/previous-events/sgdq-2018)
-- [AGDQ 2018](http://gdqstat.us/previous-events/agdq-2018)
-- [SGDQ 2017](http://gdqstat.us/previous-events/sgdq-2017)
-- [AGDQ 2017](http://gdqstat.us/previous-events/agdq-2017)
-- [SGDQ 2016](http://gdqstat.us/previous-events/sgdq-2016)
+- [AGDQ 2022](https://gdqstats.com/previous-events/agdq-2022/)
+- [SGDQ 2021](https://gdqstats.com/previous-events/sgdq-2021/)
+- [AGDQ 2021](https://gdqstats.com/previous-events/agdq-2021/) 
+- [SGDQ 2020](https://gdqstats.com/previous-events/sgdq-2020/)
+- [AGDQ 2020](https://gdqstats.com/previous-events/agdq-2020/)
+- [AGDQ 2019](https://gdqstats.com/previous-events/agdq-2019/)
+- [SGDQ 2018](https://gdqstats.com/previous-events/sgdq-2018/)
+- [AGDQ 2018](https://gdqstats.com/previous-events/agdq-2018/)
+- [SGDQ 2017](https://gdqstats.com/previous-events/sgdq-2017/)
+- [AGDQ 2017](https://gdqstats.com/previous-events/agdq-2017/)
+- [SGDQ 2016](https://gdqstats.com/previous-events/sgdq-2016/)
 
 ### Attribution
+
+- [Benjamin Congdon](https://benjamincongdon.me/) - for developing the original backend and frontend of this application and operating it from 2016 through to 2022.
 
 - [alligatr](http://alligatr.co.uk/) - for his previous years of doing SGDQ/AGDQ stats. The initial design of this site was heavily inspired by alligatr's past work.
 - [David Ensinger](http://davidensinger.com/2013/08/how-i-use-reduce-to-minify-and-optimize-assets-for-production/) - for his great minifier Rakefile blog post

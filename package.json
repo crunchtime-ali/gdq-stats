@@ -1,7 +1,7 @@
 {
   "name": "gdq-stats",
   "version": "1.0.0",
-  "description": "> :space_invader: Stats webpage for [GamesDoneQuick](gamesdonequick.com). Hosted at [gdqstat.us](http://gdqstat.us)",
+  "description": "> :space_invader: Stats webpage for [GamesDoneQuick](gamesdonequick.com). Hosted at [gdqstats.com](https://gdqstats.com)",
   "main": " ",
   "scripts": {
     "start": "gulp server",

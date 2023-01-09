@@ -1,9 +1,7 @@
-URL: "http://gdqstat.us"
-title: GDQStat.us
+URL: "https://gdqstats.com"
+title: GDQStats.com
 
 author: Benjamin Congdon
-
-googleAnalytics: UA-72102716-2
 
 languageCode: "en-us"
 languageLang: "en"
@@ -15,15 +13,18 @@ enableRobotsTXT: true
 params:
   current_event: Awesome Games Done Quick
   current_event_short_hand: AGDQ
-  current_event_year: 2022
+  current_event_year: 2023
 
   # Set to "true" to disable home page and switch to flipclock as homepage
   countdown_enabled: false
 
   # The time that the flipclock counts down to
-  event_start: "2022-01-09T09:00:00.00-08:00"
+  event_start: "2023-01-08T08:30:00.00-08:00"
 
   previous_events:
+    - name: AGDQ
+      year: 2022
+
     - name: SGDQ
       year: 2021
 
