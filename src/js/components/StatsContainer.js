@@ -35,11 +35,6 @@ const STATS = [
     emoji: "💬",
     key: "chats",
   },
-  // {
-  //   title: "Twitch Emotes",
-  //   emoji: <img src="/img/kappa.png" width="22" alt="kappa" />,
-  //   key: "emotes",
-  // },
   {
     title: "Tweets Tweeted",
     emoji: "🐦",
@@ -99,7 +94,6 @@ class StatsContainer extends React.PureComponent {
       donations: this.getLatestData(this.props.timeseries, "m"),
       donors: this.getLatestData(this.props.timeseries, "d"),
       chats: accumulated.c,
-      emotes: accumulated.e,
       tweets: accumulated.t,
       games: this.getGamesCompleted(),
     };
