@@ -1,19 +1,21 @@
 import gulp from "gulp";
 import { spawn } from "child_process";
-import hugoBin from "hugo-bin";
+import hugo from "hugo-bin";
 import PluginError from "plugin-error";
 import log from "fancy-log";
 import flatten from "gulp-flatten";
 import BrowserSync from "browser-sync";
 import webpack from "webpack";
 import webpackConfig from "./webpack.config.js";
-import sass from "gulp-sass";
+import dartSass from 'sass';
+import gulpSass from "gulp-sass";
 import ProgressPlugin from 'webpack/lib/ProgressPlugin';
 import rsync from 'gulp-rsync';
 import rm from 'gulp-rm';
 import minify from 'gulp-minifier';
 
 const browserSync = BrowserSync.create();
+const sass = gulpSass(dartSass);
 
 // Hugo arguments
 const hugoArgsDefault = ["-d", "./build", "-s", "site", "-v"];
@@ -45,6 +47,7 @@ gulp.task("js", (cb) => {
     browserSync.reload();
     cb();
   });
+  cb()
 });
 
 // Compile Javascript for production
@@ -63,6 +66,7 @@ gulp.task("js-prod", (cb) => {
     browserSync.reload();
     cb();
   });
+  cb();
 });
 
 // Move all fonts in a flattened directory
@@ -119,7 +123,7 @@ gulp.task("server", gulp.series(gulp.parallel("hugo", "css", "js", "fonts"), () 
     server: {
       baseDir: "./dist",
       serveStaticOptions: {
-          extensions: ["html"]
+        extensions: ["html"]
       }
     }
   });
@@ -127,7 +131,7 @@ gulp.task("server", gulp.series(gulp.parallel("hugo", "css", "js", "fonts"), () 
   gulp.watch("./src/scss/*.scss", gulp.parallel("css"));
   gulp.watch("./src/fonts/**/*", gulp.parallel("fonts"));
   gulp.watch(["./site/**/*", "!./site/build/**/*"], gulp.parallel("hugo"));
-}));
+}))
 
 /**
  * Run hugo and build the site
@@ -137,7 +141,7 @@ function buildSite(cb, options, environment = "development") {
 
   process.env.NODE_ENV = environment;
 
-  return spawn(hugoBin, args, {stdio: "inherit"}).on("close", (code) => {
+  return spawn(hugo, args, {stdio: "inherit"}).on("close", (code) => {
     if (code === 0) {
       browserSync.reload();
       cb();

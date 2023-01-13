@@ -21,17 +21,19 @@ module.exports = {
       {
         test : /\.js?/,
         include : APP_DIR,
-        loader : 'babel-loader',
-        query: {
-          plugins: ['recharts'],
-          presets: ['es2015', 'react', 'stage-2']
+        use : {
+          loader: 'babel-loader',
+          options: {
+            plugins: ['recharts'],
+            presets: ['es2015', 'react', 'stage-2']
+          }
         }
       },
       {
         test: /\.css$/,
-        loader: [ 'style-loader', 'css-loader' ]
+        use: [ 'style-loader', 'css-loader' ]
       }
     ]
   },
-  devtool: '#cheap-source-map'
+  devtool: 'cheap-source-map'
 }
