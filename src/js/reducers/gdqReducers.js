@@ -1,4 +1,5 @@
-import { INITIAL_TIMESERIES,
+import {
+  INITIAL_TIMESERIES,
   UPDATE_TIMESERIES,
   UPDATE_SCHEDULE,
   SET_CURRENT_SERIES,
@@ -6,7 +7,8 @@ import { INITIAL_TIMESERIES,
   SET_GAME_ZOOM,
   SET_CURRENT_SECONDARY_SERIES,
   TOGGLE_NOTIFICATION_GAME,
-  NOTIFY_GAME } from '../actions/types'
+  NOTIFY_GAME
+} from '../actions/types'
 import { utcToLocal } from '../utils.js'
 import { OFFLINE_MODE } from '../constants.js'
 
@@ -43,21 +45,21 @@ const mostRecentTime = (data) => {
 
 const updateTimeseries = (newData, current) => {
   // Do some minor manipulations of data to keep assumptions about data correct
-  for (var i = 0; i < newData.length; i++) {
+  for (let i = 0; i < newData.length; i++) {
     newData[i].time = new Date(newData[i].time)
-    for (var k in newData[i]) {
+    for (const k in newData[i]) {
       if (newData[i][k] == null) {
         newData[i][k] = -1
       }
     }
   }
-  var mostRecent = mostRecentTime(current)
+  const mostRecent = mostRecentTime(current)
   newData = newData.filter((d) => d.time > mostRecent)
   return current.concat(newData)
 }
 
 const normalizeSchedule = (schedule) => {
-  for (var i = 0; i < schedule.length; i++) {
+  for (let i = 0; i < schedule.length; i++) {
     schedule[i].startTime = utcToLocal(schedule[i].start_time)
   }
   return schedule
@@ -77,7 +79,8 @@ export default function (state = INITIAL_STATE, action) {
         return { ...state, timeseries: action.payload }
       }
     case UPDATE_TIMESERIES:
-      return { ...state,
+      return {
+        ...state,
         timeseries: updateTimeseries(action.payload, state.timeseries),
         timeseriesLoaded: true
       }
