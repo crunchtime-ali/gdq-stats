@@ -14,7 +14,7 @@ const ReturnHome = () => {
   return (
     <h3>
       <a style={style} href='/'>
-        <Glyphicon style={{paddingRight: 8}} glyph='chevron-left' /> <span>Return Home</span>
+        <Glyphicon style={{ paddingRight: 8 }} glyph='chevron-left' /> <span>Return Home</span>
       </a>
     </h3>
   )

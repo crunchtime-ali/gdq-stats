@@ -45,22 +45,26 @@ class GamesTable extends React.Component {
       <IconLink
         icon='glyphicon glyphicon-bell'
         active={notificationActive}
-        onClick={() => this.props.toggleNotificationGame(id)} />
+        onClick={() => this.props.toggleNotificationGame(id)}
+      />
     )
 
     const notificationTooltip = (
       <Tooltip
         id='notification-tooltip'
-        style={{color: 'red'}}>
+        style={{ color: 'red' }}
+      >
         Click to be notified right before<br />'<b>{game.name}</b>'<br /> starts!
       </Tooltip>
     )
 
-    const tooltipAppliedNotification = notificationActive ? notificationIcon : (
-      <OverlayTrigger placement='top' overlay={notificationTooltip}>
-        {notificationIcon}
-      </OverlayTrigger>
-    )
+    const tooltipAppliedNotification = notificationActive
+      ? notificationIcon
+      : (
+        <OverlayTrigger placement='top' overlay={notificationTooltip}>
+          {notificationIcon}
+        </OverlayTrigger>
+        )
 
     let status
     if (gameEndTime(game).isBefore(dayjs())) {
@@ -119,7 +123,7 @@ class GamesTable extends React.Component {
             </Grid>
           </div>
         </div>
-        <div className='current_stats container' style={{padding: 5}}>
+        <div className='current_stats container' style={{ padding: 5 }}>
           <Stat title='Games Completed' emoji='🎮' value={this.getGamesCompleted()} />
         </div>
       </div>

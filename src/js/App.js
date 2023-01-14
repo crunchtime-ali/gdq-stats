@@ -4,9 +4,11 @@ import GamesTable from './components/GamesTable'
 import GraphContainer from './components/GraphContainer'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import { fetchInitialTimeseries,
+import {
+  fetchInitialTimeseries,
   fetchSchedule,
-  fetchRecentTimeseries } from './actions'
+  fetchRecentTimeseries
+} from './actions'
 import dayjs from 'dayjs'
 import Visibility from 'visibilityjs'
 import { OFFLINE_MODE } from './constants'
@@ -33,11 +35,13 @@ class App extends React.PureComponent {
   }
 
   render () {
-    return <div>
-      <StatsContainer />
-      <GraphContainer />
-      <GamesTable />
-    </div>
+    return (
+      <div>
+        <StatsContainer />
+        <GraphContainer />
+        <GamesTable />
+      </div>
+    )
   }
 }
 

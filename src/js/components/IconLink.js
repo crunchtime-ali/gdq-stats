@@ -7,9 +7,10 @@ const IconLink = ({ icon, active, ...props }) => {
   const color = active ? DARK_FILL_COLOR : LIGHT_FILL_COLOR
   return (
     <a
-      style={{cursor: 'pointer'}}
-      {...props}>
-      <Glyphicon style={{color: color}} glyph={icon} />
+      style={{ cursor: 'pointer' }}
+      {...props}
+    >
+      <Glyphicon style={{ color }} glyph={icon} />
     </a>
   )
 }

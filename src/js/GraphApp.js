@@ -2,9 +2,11 @@ import React from 'react'
 import GraphContainer from './components/GraphContainer'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import { fetchInitialTimeseries,
+import {
+  fetchInitialTimeseries,
   fetchSchedule,
-  fetchRecentTimeseries } from './actions'
+  fetchRecentTimeseries
+} from './actions'
 import dayjs from 'dayjs'
 import Grid from 'react-bootstrap/lib/Grid'
 import Col from 'react-bootstrap/lib/Col'

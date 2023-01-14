@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import { GDQ_STORAGE_ENDPOINT,
+import {
+  GDQ_STORAGE_ENDPOINT,
   PRIMARY_COLOR,
   SECONDARY_COLOR,
   LIGHT_FILL_COLOR,
   DARK_FILL_COLOR,
-  EVENT_START_DATE } from './constants'
-import { BarChart,
+  EVENT_START_DATE
+} from './constants'
+import {
+  BarChart,
   Bar,
   LineChart,
   Line,
@@ -15,7 +18,8 @@ import { BarChart,
   ResponsiveContainer,
   XAxis,
   YAxis,
-  CartesianGrid } from 'recharts'
+  CartesianGrid
+} from 'recharts'
 import C3Chart from 'react-c3js'
 import 'c3/c3.css'
 import PacmanLoader from 'halogen/PacmanLoader'
@@ -57,14 +61,14 @@ class DonationsApp extends React.PureComponent {
     if (!this.state.donationStats) {
       return this.getLoader()
     }
-    let columns = []
+    const columns = []
     this.state.donationStats.comment_stats.forEach((stat) => {
       const columnArr = [stat.has_comment ? 'commented' : 'uncommented']
       columnArr.push(stat.count)
       columns.push(columnArr)
     })
     const c3Data = {
-      columns: columns,
+      columns,
       type: 'donut',
       names: {
         commented: 'Has Comment',
@@ -91,14 +95,14 @@ class DonationsApp extends React.PureComponent {
     if (!this.state.donationStats) {
       return this.getLoader()
     }
-    let columns = []
+    const columns = []
     this.state.donationStats.anonymous.forEach((stat) => {
       const columnArr = [stat.anonymous ? 'anonymous' : 'signed']
       columnArr.push(stat.count)
       columns.push(columnArr)
     })
     const c3Data = {
-      columns: columns,
+      columns,
       type: 'donut',
       names: {
         signed: 'Signed',
@@ -125,14 +129,14 @@ class DonationsApp extends React.PureComponent {
     if (!this.state.donationStats) {
       return this.getLoader()
     }
-    let columns = []
+    const columns = []
     this.state.donationStats.anonymous.forEach((stat) => {
       const columnArr = [stat.anonymous ? 'anonymous' : 'signed']
       columnArr.push(stat.sum)
       columns.push(columnArr)
     })
     const c3Data = {
-      columns: columns,
+      columns,
       type: 'donut',
       names: {
         signed: 'Signed',
@@ -159,14 +163,14 @@ class DonationsApp extends React.PureComponent {
     if (!this.state.donationStats) {
       return this.getLoader()
     }
-    let columns = []
+    const columns = []
     this.state.donationStats.comment_stats.forEach((stat) => {
       const columnArr = [stat.has_comment ? 'commented' : 'uncommented']
       columnArr.push(stat.sum)
       columns.push(columnArr)
     })
     const c3Data = {
-      columns: columns,
+      columns,
       type: 'donut',
       names: {
         commented: 'Has Comment',
@@ -193,8 +197,8 @@ class DonationsApp extends React.PureComponent {
     if (!this.state.donationStats) {
       return this.getLoader()
     }
-    const [ commented, uncommented ] = this.state.donationStats.comment_stats
-    const [ anonymous ] = this.state.donationStats.anonymous
+    const [commented, uncommented] = this.state.donationStats.comment_stats
+    const [anonymous] = this.state.donationStats.anonymous
     const stats = [
       { title: 'Median Donation w/ Comment', emoji: '🗣', value: commented.median },
       { title: 'Median Donation w/o Comment', emoji: '🙊', value: uncommented.median },
@@ -204,13 +208,15 @@ class DonationsApp extends React.PureComponent {
       { title: 'Average Donation - Anonymous', emoji: '❓', value: anonymous.avg }
     ]
     return stats.map((props, idx) => {
-      return <Stat
-        key={idx}
-        {...props}
-        prefix='$'
-        value={+(props.value.toFixed(2))}
-        format='(,ddd).dd'
-      />
+      return (
+        <Stat
+          key={idx}
+          {...props}
+          prefix='$'
+          value={+(props.value.toFixed(2))}
+          format='(,ddd).dd'
+        />
+      )
     })
   }
 
@@ -224,13 +230,15 @@ class DonationsApp extends React.PureComponent {
       { title: 'Average Donation - Overall', emoji: '💸', value: overall.avg }
     ]
     return overallStats.map((props, idx) => {
-      return <Stat
-        key={idx}
-        {...props}
-        prefix='$'
-        value={+(props.value.toFixed(2))}
-        format='(,ddd).dd'
-      />
+      return (
+        <Stat
+          key={idx}
+          {...props}
+          prefix='$'
+          value={+(props.value.toFixed(2))}
+          format='(,ddd).dd'
+        />
+      )
     })
   }
 
@@ -241,11 +249,11 @@ class DonationsApp extends React.PureComponent {
     const medians = this.state.donationStats.medians
       .filter(obj => dayjs(obj.time).isAfter(EVENT_START_DATE))
       .map((obj) => {
-        return {...obj, time: utcToLocal(obj.time).unix()}
+        return { ...obj, time: utcToLocal(obj.time).unix() }
       })
     return (
       <ResponsiveContainer width='100%' height={500}>
-        <LineChart data={medians} margin={{top: 20}}>
+        <LineChart data={medians} margin={{ top: 20 }}>
           <Line
             type='natural'
             dataKey='median'
@@ -253,30 +261,34 @@ class DonationsApp extends React.PureComponent {
             stroke={PRIMARY_COLOR}
             strokeWidth={1.5}
             dot={false}
-            activeDot />
+            activeDot
+          />
           <YAxis
             dataKey='median'
             tickFormatter={format('$,')}
-            axisLine={{stroke: LIGHT_FILL_COLOR}}
-            tickLine={{stroke: LIGHT_FILL_COLOR}}
-            tick={{fill: DARK_FILL_COLOR, fontWeight: 300, fontSize: 13}}
+            axisLine={{ stroke: LIGHT_FILL_COLOR }}
+            tickLine={{ stroke: LIGHT_FILL_COLOR }}
+            tick={{ fill: DARK_FILL_COLOR, fontWeight: 300, fontSize: 13 }}
             domain={[0, 'dataMax']}
             interval='preserveStartEnd'
-            minTickGap={0} />
+            minTickGap={0}
+          />
           <Tooltip
             formatter={format('$,.2f')}
-            labelFormatter={(d) => dayjs(d * 1000).format('dddd, MMM D YYYY, h:mm a')} />
+            labelFormatter={(d) => dayjs(d * 1000).format('dddd, MMM D YYYY, h:mm a')}
+          />
           <XAxis
             dataKey='time'
             type='number'
             scale='time'
-            axisLine={{stroke: '#ddd'}}
-            tickLine={{stroke: '#ddd'}}
+            axisLine={{ stroke: '#ddd' }}
+            tickLine={{ stroke: '#ddd' }}
             tickFormatter={(d) => dayjs(d * 1000).format('dddd, hA')}
-            tick={{fill: '#333', fontWeight: 300, fontSize: 13}}
+            tick={{ fill: '#333', fontWeight: 300, fontSize: 13 }}
             interval='preserveStart'
             domain={['dataMin', 'dataMax']}
-            minTickGap={50} />
+            minTickGap={50}
+          />
         </LineChart>
       </ResponsiveContainer>
     )
@@ -291,21 +303,23 @@ class DonationsApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={0}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Word
       </VerticalLabel>
     )
     return (
       <ResponsiveContainer width='100%' minHeight={800}>
         <BarChart
-          margin={{top: 25, left: 50, bottom: 24, right: 24}}
+          margin={{ top: 25, left: 50, bottom: 24, right: 24 }}
           barSize={10}
           barCategoryGap={2}
           layout='vertical'
-          data={this.state.donationWords}>
+          data={this.state.donationWords}
+        >
           <Tooltip />
           <CartesianGrid horizontal={false} />
-          <XAxis label={'Number of Uses in Donation Comments'} orientation='top' type='number' />
+          <XAxis label='Number of Uses in Donation Comments' orientation='top' type='number' />
           <YAxis label={yAxisLabel} interval={0} type='category' dataKey='word' />
           <Bar name='Uses' dataKey='entries' fill={PRIMARY_COLOR} />
         </BarChart>
@@ -322,27 +336,30 @@ class DonationsApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-30}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Donor
       </VerticalLabel>
     )
     return (
       <ResponsiveContainer width='100%' height={800}>
         <BarChart
-          margin={{top: 25, left: 60, bottom: 24, right: 24}}
+          margin={{ top: 25, left: 60, bottom: 24, right: 24 }}
           barSize={10}
           barCategoryGap={2}
           layout='vertical'
-          data={this.state.topDonors.frequent}>
+          data={this.state.topDonors.frequent}
+        >
           <Tooltip />
           <CartesianGrid horizontal={false} />
-          <XAxis label={'Most Frequent Donors'} orientation='top' type='number' />
+          <XAxis label='Most Frequent Donors' orientation='top' type='number' />
           <YAxis
             tickFormatter={(t) => t.length < 11 ? t : (t.substring(0, 8) + '...')}
             label={yAxisLabel}
             interval={0}
             type='category'
-            dataKey='name' />
+            dataKey='name'
+          />
           <Bar dataKey='count' name='Number of Donations' fill={PRIMARY_COLOR} />
         </BarChart>
       </ResponsiveContainer>
@@ -358,31 +375,35 @@ class DonationsApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-30}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Donor
       </VerticalLabel>
     )
     return (
       <ResponsiveContainer width='100%' height={800}>
         <BarChart
-          margin={{top: 25, left: 60, bottom: 24, right: 24}}
+          margin={{ top: 25, left: 60, bottom: 24, right: 24 }}
           barSize={10}
           barCategoryGap={2}
           layout='vertical'
-          data={this.state.topDonors.generous}>
+          data={this.state.topDonors.generous}
+        >
           <Tooltip formatter={format('$,.2f')} />
           <CartesianGrid horizontal={false} />
           <XAxis
-            label={'Most Generous Donors'}
+            label='Most Generous Donors'
             orientation='top'
             type='number'
-            tickFormatter={format('$,.2f')} />
+            tickFormatter={format('$,.2f')}
+          />
           <YAxis
             tickFormatter={(t) => t.length < 11 ? t : (t.substring(0, 8) + '...')}
             label={yAxisLabel}
             interval={0}
             type='category'
-            dataKey='name' />
+            dataKey='name'
+          />
           <Bar name='Donation Total' dataKey='total' fill={PRIMARY_COLOR} />
         </BarChart>
       </ResponsiveContainer>
@@ -432,7 +453,7 @@ class DonationsApp extends React.PureComponent {
         <div className='section'>
           <h2>Median Donation Over Time</h2>
           <Grid>
-            <Col md={12} >{this.getMediansChart()}</Col>
+            <Col md={12}>{this.getMediansChart()}</Col>
           </Grid>
         </div>
       </div>

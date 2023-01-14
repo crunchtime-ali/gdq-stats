@@ -24,7 +24,8 @@ const VerticalLabel = ({
       fill={fill}
       fontWeight={fontWeight}
       fontSize={fontSize}
-      className={className}>
+      className={className}
+    >
       {children}
     </text>
   )

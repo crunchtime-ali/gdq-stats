@@ -1,12 +1,18 @@
 {
   "parser": "@babel/eslint-parser",
-  "extends": ["standard", "standard-react"],
+  "parserOptions": {
+    "babelOptions": {
+       "presets": ["@babel/preset-react"]
+    },
+  },
+  "extends": ["standard", "standard-jsx", "standard-react"],
   "settings": {
     "import/resolver": "webpack"
   },
   "env": {
       "browser": true,
-      "jest": true
+      "jest": true,
+      "es2021": true
   },
   "rules": {
     "max-len": ["error", {

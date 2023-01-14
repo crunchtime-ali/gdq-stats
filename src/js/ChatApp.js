@@ -1,20 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import { GDQ_STORAGE_ENDPOINT,
-  PRIMARY_COLOR } from './constants'
-import { BarChart,
+import {
+  GDQ_STORAGE_ENDPOINT,
+  PRIMARY_COLOR
+} from './constants'
+import {
+  BarChart,
   Bar,
   Tooltip,
   ResponsiveContainer,
   XAxis,
   YAxis,
-  CartesianGrid } from 'recharts'
+  CartesianGrid
+} from 'recharts'
 import PacmanLoader from 'halogen/PacmanLoader'
 import VerticalLabel from './components/VerticalLabel'
 import ReturnHome from './components/ReturnHome'
 
-const GRAPH_MARGINS = {top: 25, left: 100, bottom: 24, right: 24}
+const GRAPH_MARGINS = { top: 25, left: 100, bottom: 24, right: 24 }
 
 class ChatApp extends React.PureComponent {
   constructor (props) {
@@ -45,14 +49,15 @@ class ChatApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-70}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Username
       </VerticalLabel>
     )
     return (
       <ResponsiveContainer width='100%' minHeight={600}>
         <BarChart margin={GRAPH_MARGINS} barGap={150} layout='vertical' data={this.state.chatUsers}>
-          <Tooltip labelFormater={() => 'foo'}formatter={(val) => `${val} messages sent`} />
+          <Tooltip labelFormater={() => 'foo'} formatter={(val) => `${val} messages sent`} />
           <CartesianGrid horizontal={false} />
           <XAxis label='Number of Messages Sent' orientation='top' type='number' />
           <YAxis
@@ -77,7 +82,8 @@ class ChatApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-40}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Word
       </VerticalLabel>
     )
@@ -86,7 +92,7 @@ class ChatApp extends React.PureComponent {
         <BarChart margin={GRAPH_MARGINS} barGap={150} layout='vertical' data={this.state.chatWords}>
           <Tooltip formatter={(val) => `${val} uses`} />
           <CartesianGrid horizontal={false} />
-          <XAxis label={'Number of Uses in Chat'} orientation='top' type='number' />
+          <XAxis label='Number of Uses in Chat' orientation='top' type='number' />
           <YAxis label={yAxisLabel} interval={0} type='category' dataKey='word' />
           <Bar dataKey='count' fill={PRIMARY_COLOR} />
         </BarChart>

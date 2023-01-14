@@ -1,16 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import { GDQ_STORAGE_ENDPOINT,
+import {
+  GDQ_STORAGE_ENDPOINT,
   PRIMARY_COLOR,
-  SECONDARY_COLOR } from './constants'
-import { BarChart,
+  SECONDARY_COLOR
+} from './constants'
+import {
+  BarChart,
   Bar,
   Tooltip,
   ResponsiveContainer,
   XAxis,
   YAxis,
-  CartesianGrid } from 'recharts'
+  CartesianGrid
+} from 'recharts'
 import PacmanLoader from 'halogen/PacmanLoader'
 import VerticalLabel from './components/VerticalLabel'
 import ReturnHome from './components/ReturnHome'
@@ -22,7 +26,7 @@ import 'c3/c3.css'
 import dayjs from 'dayjs'
 import { format } from 'd3-format'
 
-const GRAPH_MARGINS = {top: 25, left: 100, bottom: 24, right: 24}
+const GRAPH_MARGINS = { top: 25, left: 100, bottom: 24, right: 24 }
 
 class AnimalsApp extends React.PureComponent {
   constructor (props) {
@@ -49,14 +53,15 @@ class AnimalsApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-70}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Username
       </VerticalLabel>
     )
     return (
       <ResponsiveContainer width='100%' minHeight={600}>
         <BarChart margin={GRAPH_MARGINS} barGap={150} layout='vertical' data={this.state.chatUsers}>
-          <Tooltip labelFormater={() => 'foo'}formatter={(val) => `${val} messages sent`} />
+          <Tooltip labelFormater={() => 'foo'} formatter={(val) => `${val} messages sent`} />
           <CartesianGrid horizontal={false} />
           <XAxis label='Number of Messages Sent' orientation='top' type='number' />
           <YAxis
@@ -82,17 +87,19 @@ class AnimalsApp extends React.PureComponent {
       { title: 'Save the Animals', emoji: '👼', value: latest.kill }
     ]
     const bidStats = stats.map((props, idx) => {
-      return <Stat
-        key={idx}
-        {...props}
-        prefix='$'
-        value={+(props.value.toFixed(2))}
-        format='(,ddd).dd'
-      />
+      return (
+        <Stat
+          key={idx}
+          {...props}
+          prefix='$'
+          value={+(props.value.toFixed(2))}
+          format='(,ddd).dd'
+        />
+      )
     })
 
     return (
-      <Grid className='current_stats content' style={{fontSize: 20, fontWeight: 'bold'}}>
+      <Grid className='current_stats content' style={{ fontSize: 20, fontWeight: 'bold' }}>
         <Col lg={1} md={0} />
         {bidStats[0]}
         <Col lg={2} md={0} />
@@ -113,7 +120,7 @@ class AnimalsApp extends React.PureComponent {
       })
     const data = {
       x: 'time',
-      columns: [ kill, save, time ],
+      columns: [kill, save, time],
       names: {
         kill: 'Kill the Animals',
         save: 'Save the Animals'
@@ -139,7 +146,7 @@ class AnimalsApp extends React.PureComponent {
       }
     }
     const point = { show: false }
-    return <C3Chart data={data} axis={axis} point={point} zoom={{enabled: true}} />
+    return <C3Chart data={data} axis={axis} point={point} zoom={{ enabled: true }} />
   }
 
   getAnimalsDiffTimeseries () {
@@ -153,7 +160,7 @@ class AnimalsApp extends React.PureComponent {
       })
     const data = {
       x: 'time',
-      columns: [ diff, time ],
+      columns: [diff, time],
       names: {
         diff: 'Kill the Animals'
       },
@@ -175,7 +182,7 @@ class AnimalsApp extends React.PureComponent {
       }
     }
     const point = { show: false }
-    return <C3Chart data={data} axis={axis} point={point} zoom={{enabled: true}} />
+    return <C3Chart data={data} axis={axis} point={point} zoom={{ enabled: true }} />
   }
 
   render () {

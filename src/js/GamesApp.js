@@ -1,15 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import { GDQ_STORAGE_ENDPOINT,
-  PRIMARY_COLOR } from './constants'
-import { BarChart,
+import {
+  GDQ_STORAGE_ENDPOINT,
+  PRIMARY_COLOR
+} from './constants'
+import {
+  BarChart,
   Bar,
   Tooltip,
   ResponsiveContainer,
   XAxis,
   YAxis,
-  CartesianGrid } from 'recharts'
+  CartesianGrid
+} from 'recharts'
 import PacmanLoader from 'halogen/PacmanLoader'
 import VerticalLabel from './components/VerticalLabel'
 import ReturnHome from './components/ReturnHome'
@@ -39,7 +43,8 @@ class GamesApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-30}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Game
       </VerticalLabel>
     )
@@ -50,25 +55,28 @@ class GamesApp extends React.PureComponent {
     return (
       <ResponsiveContainer height={900}>
         <BarChart
-          margin={{top: 25, left: 60, bottom: 24, right: 24}}
+          margin={{ top: 25, left: 60, bottom: 24, right: 24 }}
           barSize={10}
           barCategoryGap={2}
           layout='vertical'
-          data={sorted.slice(0, 75)}>
+          data={sorted.slice(0, 75)}
+        >
           <Tooltip formatter={format('$,.2f')} />
           <CartesianGrid horizontal={false} />
           <XAxis
-            label={'Donations Raised'}
+            label='Donations Raised'
             orientation='top'
             type='number'
-            tickFormatter={format('$,.2f')} />
+            tickFormatter={format('$,.2f')}
+          />
           <YAxis
             tickFormatter={(t) => t.length < 22 ? t : (t.substring(0, 19) + '...')}
             label={yAxisLabel}
             interval={0}
             width={120}
             type='category'
-            dataKey='name' />
+            dataKey='name'
+          />
           <Bar name='Donation Total' dataKey='total_donations' fill={PRIMARY_COLOR} />
         </BarChart>
       </ResponsiveContainer>
@@ -84,7 +92,8 @@ class GamesApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-30}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Game
       </VerticalLabel>
     )
@@ -95,25 +104,28 @@ class GamesApp extends React.PureComponent {
     return (
       <ResponsiveContainer height={900}>
         <BarChart
-          margin={{top: 25, left: 60, bottom: 24, right: 24}}
+          margin={{ top: 25, left: 60, bottom: 24, right: 24 }}
           barSize={10}
           barCategoryGap={2}
           layout='vertical'
-          data={sorted.slice(0, 75)}>
+          data={sorted.slice(0, 75)}
+        >
           <Tooltip formatter={format('$,.2f')} />
           <CartesianGrid horizontal={false} />
           <XAxis
-            label={'Average Donations Per Minute'}
+            label='Average Donations Per Minute'
             orientation='top'
             type='number'
-            tickFormatter={format('$,.2f')} />
+            tickFormatter={format('$,.2f')}
+          />
           <YAxis
             tickFormatter={(t) => t.length < 22 ? t : (t.substring(0, 19) + '...')}
             label={yAxisLabel}
             interval={0}
             width={120}
             type='category'
-            dataKey='name' />
+            dataKey='name'
+          />
           <Bar name='Donations per Minute' dataKey='donations_per_min' fill={PRIMARY_COLOR} />
         </BarChart>
       </ResponsiveContainer>
@@ -129,7 +141,8 @@ class GamesApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-30}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Game
       </VerticalLabel>
     )
@@ -140,25 +153,28 @@ class GamesApp extends React.PureComponent {
     return (
       <ResponsiveContainer height={900}>
         <BarChart
-          margin={{top: 25, left: 60, bottom: 24, right: 24}}
+          margin={{ top: 25, left: 60, bottom: 24, right: 24 }}
           barSize={10}
           barCategoryGap={2}
           layout='vertical'
-          data={sorted.slice(0, 75)}>
+          data={sorted.slice(0, 75)}
+        >
           <Tooltip formatter={format('$,.2f')} />
           <CartesianGrid horizontal={false} />
           <XAxis
-            label={'Median Donation During Run'}
+            label='Median Donation During Run'
             orientation='top'
             type='number'
-            tickFormatter={format('$,.2f')} />
+            tickFormatter={format('$,.2f')}
+          />
           <YAxis
             tickFormatter={(t) => t.length < 22 ? t : (t.substring(0, 19) + '...')}
             label={yAxisLabel}
             interval={0}
             width={120}
             type='category'
-            dataKey='name' />
+            dataKey='name'
+          />
           <Bar name='Median Donation Amount' dataKey='median_donation' fill={PRIMARY_COLOR} />
         </BarChart>
       </ResponsiveContainer>
@@ -174,7 +190,8 @@ class GamesApp extends React.PureComponent {
         axisType='yAxis'
         xOffset={-30}
         yOffset={275}
-        className='recharts-label'>
+        className='recharts-label'
+      >
         Game
       </VerticalLabel>
     )
@@ -185,25 +202,28 @@ class GamesApp extends React.PureComponent {
     return (
       <ResponsiveContainer height={900}>
         <BarChart
-          margin={{top: 25, left: 60, bottom: 24, right: 24}}
+          margin={{ top: 25, left: 60, bottom: 24, right: 24 }}
           barSize={10}
           barCategoryGap={2}
           layout='vertical'
-          data={sorted.slice(0, 75)}>
+          data={sorted.slice(0, 75)}
+        >
           <Tooltip formatter={format(',')} />
           <CartesianGrid horizontal={false} />
           <XAxis
-            label={'Maximum Viewers During Game'}
+            label='Maximum Viewers During Game'
             orientation='top'
             type='number'
-            tickFormatter={format(',')} />
+            tickFormatter={format(',')}
+          />
           <YAxis
             tickFormatter={(t) => t.length < 22 ? t : (t.substring(0, 19) + '...')}
             label={yAxisLabel}
             interval={0}
             width={120}
             type='category'
-            dataKey='name' />
+            dataKey='name'
+          />
           <Bar name='Maximum Viewers' dataKey='max_viewers' fill={PRIMARY_COLOR} />
         </BarChart>
       </ResponsiveContainer>
