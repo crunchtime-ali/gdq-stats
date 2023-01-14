@@ -21,11 +21,20 @@ module.exports = {
       {
         test : /\.js?/,
         include : APP_DIR,
-        use : {
-          loader: 'babel-loader',
+        use: {
+          loader : 'babel-loader',
           options: {
-            plugins: ['recharts'],
-            presets: ['es2015', 'react', 'stage-2']
+            plugins: [
+              'recharts',
+              // Stage 2 (see here https://babeljs.io/blog/2018/07/27/removing-babels-stage-presets)
+              ["@babel/plugin-proposal-decorators", { "legacy": true }],
+              "@babel/plugin-proposal-function-sent",
+              "@babel/plugin-proposal-export-namespace-from",
+              "@babel/plugin-proposal-numeric-separator",
+              "@babel/plugin-proposal-throw-expressions",
+            ],
+            presets: [
+              ['@babel/preset-env', { targets: "defaults" }], '@babel/preset-react']
           }
         }
       },
@@ -35,5 +44,5 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-source-map'
+  //devtool: '#cheap-source-map'
 }
