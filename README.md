@@ -36,6 +36,7 @@ $ npm run snapshot --name=agdq-2021 # Replace w/ the current event name
 
 ## Previous Events
 
+- [AGDQ 2023](https://gdqstats.com/previous-events/agdq-2023/)
 - [AGDQ 2022](https://gdqstats.com/previous-events/agdq-2022/)
 - [SGDQ 2021](https://gdqstats.com/previous-events/sgdq-2021/)
 - [AGDQ 2021](https://gdqstats.com/previous-events/agdq-2021/) 
@@ -51,6 +52,5 @@ $ npm run snapshot --name=agdq-2021 # Replace w/ the current event name
 ### Attribution
 
 - [Benjamin Congdon](https://benjamincongdon.me/) - for developing the original backend and frontend of this application and operating it from 2016 through to 2022.
-
 - [alligatr](http://alligatr.co.uk/) - for his previous years of doing SGDQ/AGDQ stats. The initial design of this site was heavily inspired by alligatr's past work.
 - [David Ensinger](http://davidensinger.com/2013/08/how-i-use-reduce-to-minify-and-optimize-assets-for-production/) - for his great minifier Rakefile blog post
