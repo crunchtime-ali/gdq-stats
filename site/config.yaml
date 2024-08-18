@@ -11,8 +11,8 @@ disableKinds: ["RSS", "taxonomy", "taxonomyTerm", "sitemap", "404"]
 enableRobotsTXT: true
 
 params:
-  current_event: Frame Fatales
-  current_event_short_hand: framefatales
+  current_event: Flame Fatales
+  current_event_short_hand: flamefatales
   current_event_year: 2024
 
   # Set to "true" to disable home page and switch to flipclock as homepage
