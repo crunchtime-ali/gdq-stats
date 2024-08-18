@@ -17,11 +17,5 @@
 
 <link rel="stylesheet" type="text/css" href="/css/main.css">
 
-{{ if eq (getenv "NODE_ENV") "production" }}
-    {{- template "_internal/google_analytics_async.html" . -}}
-
-    <script data-goatcounter="https://gdqstatus.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-{{ end }}
-
 {{- template "_internal/opengraph.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
