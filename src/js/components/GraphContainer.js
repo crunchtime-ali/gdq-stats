@@ -317,11 +317,13 @@ class GraphContainer extends React.Component {
               activeKey={this.props.activeSeries}
               onSelect={this.onSelect}
             >
-              {GRAPHS.map((obj, idx) => (
+              {GRAPHS.map((obj, idx) => {
+                if (obj.name !== "Tweets" && obj.name !== "Tweets per minute") {
+                  return(
                 <NavItem eventKey={idx} key={idx}>
                   {obj.name}
-                </NavItem>
-              ))}
+                </NavItem>)
+                }})}
             </Nav>
           </Col>
           <hr
@@ -384,7 +386,8 @@ class GraphContainer extends React.Component {
                     <NavItem eventKey={idx} key={idx}>
                       {obj.name}
                     </NavItem>
-                  ))}
+                    )
+                  )}}
                 </Nav>
               </Col>
               )
