@@ -31,10 +31,10 @@ Please visit that repo for more detailed information about the gdq-stats backend
 To take a snapshot of a previous event:
 
 ```
-$ npm run snapshot --name=agdq-2021 # Replace w/ the current event name
+$ npm run snapshot --name=agdq-2024 # Replace w/ the current event name
 ```
 
-## Previous Events
+## Previous Main Events
 
 - [SGDQ 2024](https://gdqstats.com/previous-events/sgdq-2024/)
 - [AGDQ 2024](https://gdqstats.com/previous-events/agdq-2024/)
@@ -51,6 +51,9 @@ $ npm run snapshot --name=agdq-2021 # Replace w/ the current event name
 - [SGDQ 2017](https://gdqstats.com/previous-events/sgdq-2017/)
 - [AGDQ 2017](https://gdqstats.com/previous-events/agdq-2017/)
 - [SGDQ 2016](https://gdqstats.com/previous-events/sgdq-2016/)
+
+## Previous Side Events
+- [Flame Fatales 2024](https://gdqstats.com/previous-events/flamefatales-2024/)
 
 ### Attribution
 
