@@ -36,6 +36,7 @@ $ npm run snapshot --name=agdq-2024 # Replace w/ the current event name
 
 ## Previous Main Events
 
+- [AGDQ 2025](https://gdqstats.com/previous-events/agdq-2025/)
 - [SGDQ 2024](https://gdqstats.com/previous-events/sgdq-2024/)
 - [AGDQ 2024](https://gdqstats.com/previous-events/agdq-2024/)
 - [SGDQ 2023](https://gdqstats.com/previous-events/sgdq-2023/)

@@ -8,9 +8,9 @@ export const OFFLINE_MODE = false
 const LIVE_STORAGE_ENDPOINT = 'https://storage.gdqstats.com'
 
 // Note: Keep this up-to-date with the most recent event
-export const EVENT_YEAR = 2024
+export const EVENT_YEAR = 2025
 export const EVENT_SHORT_NAME = 'sgdq'
-export const EVENT_START_DATE = dayjs('06-30-24')
+export const EVENT_START_DATE = dayjs('07-06-25')
 
 const OFFLINE_STORAGE_ENDPOINT = `/data/${EVENT_YEAR}/${EVENT_SHORT_NAME}_final`
 

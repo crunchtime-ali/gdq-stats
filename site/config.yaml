@@ -11,8 +11,8 @@ disableKinds: ["RSS", "taxonomy", "taxonomyTerm", "sitemap", "404"]
 enableRobotsTXT: true
 
 params:
-  current_event: Awesome Games Done Quick
-  current_event_short_hand: AGDQ
+  current_event: Summer Games Done Quick
+  current_event_short_hand: SGDQ
   current_event_year: 2025
 
   # Set to "true" to disable home page and switch to flipclock as homepage
@@ -22,6 +22,9 @@ params:
   event_start: "2022-08-18T09:30:00.00-08:00"
 
   previous_events:
+    - name: AGDQ
+      year: 2025
+
     - name: FlameFatales
       year: 2024
 
